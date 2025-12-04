@@ -10,7 +10,7 @@ function Header() {
       <section className={classes.outerContainer}>
         <div className={classes.innerConatainer}>
           <div className={classes.divOne}>
-            <div>
+            <div className= {classes.linkWrapper}>
               <a href="">
                 <img
                   src="https://pngimg.com/uploads/amazon/small/amazon_PNG11.png"

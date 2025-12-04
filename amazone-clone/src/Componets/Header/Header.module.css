@@ -176,6 +176,9 @@
   list-style: none;
   font-size: 11px;
 }
+.linkWrapper:hover, .locationContainer:hover, .flagContainer:hover, .linkContainer:hover {
+  border: 1px solid;
+} 
 
 @media(max-width:567px) {
   .innerConatainer {
