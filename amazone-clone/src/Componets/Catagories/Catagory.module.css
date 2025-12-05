@@ -1,5 +1,5 @@
 .Catagory  {
-    height: 250px;
+    height: 230px;
     width: 250px;
     background-color: white;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.428);
@@ -19,6 +19,9 @@
 .Catagory h2, .Catagory p {
     padding: 5px;
     margin-left: 15px;
+}
+.Catagory h2 {
+    font-size: 18px;
 }
 .Catagory p {
     font-size: 12px;
