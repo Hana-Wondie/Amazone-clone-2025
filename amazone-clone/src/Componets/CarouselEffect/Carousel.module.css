@@ -13,6 +13,9 @@
         rgba(255, 255, 255)
     );
 }
+
+
+
 @media (max-width: 600px) {
     .hero_img::before {
         height: 150px;
