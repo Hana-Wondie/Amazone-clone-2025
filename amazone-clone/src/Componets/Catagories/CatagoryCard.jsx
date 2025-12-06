@@ -1,18 +1,18 @@
 
 import classes from "../Catagories/Catagory.module.css"
-function CatagoryCard({title, imgLink}) {
+import {Link} from "react-router-dom"
+function CatagoryCard({title, imgLink, name}) {
   return (
-    <div className= {classes.Catagory}>
-      <a href="">
+    <div className={classes.Catagory}>
+      <Link to={`/categories/${name}`}>
         <span>
           <h2>{title}</h2>
         </span>
-        <img src= {imgLink} alt="" />
+        <img src={imgLink} alt="" />
         <p>shop now</p>
-      </a>
-      
+      </Link>
     </div>
-  )
+  );
 }
 
 export default CatagoryCard

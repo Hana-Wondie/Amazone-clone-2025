@@ -6,12 +6,15 @@ function Product() {
     const [products, setProducts] = useState([])
     useEffect(() => {
 
-axios.get("https://fakestoreapi.com/products").then((res) => {
+axios
+  .get("https://dummyjson.com/products")
+  .then((res) => {
     console.log(res);
-  setProducts(res.data)
-}).catch((error) => {
+    setProducts(res.data.products);
+  })
+  .catch((error) => {
     console.log(error);
-});
+  });
     }, [])
   return (
     <section className= {classes.product_container}>
@@ -19,10 +22,11 @@ axios.get("https://fakestoreapi.com/products").then((res) => {
         products?.map((results) => (
 <ProductCard
 key = {results.id}
-image = {results.image}
+id = {results.id}
+image = {results.thumbnail}
 title = {results.title}
-rate = {results.rating.rate}
-count = {results.rating.count}
+rate = {results.rating}
+count = {results.stock}
 price = {results.price}
 
 />

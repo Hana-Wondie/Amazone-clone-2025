@@ -10,6 +10,7 @@ function Catagory() {
         key = {infos.name}
         title = {infos.title}
         imgLink = {infos.imgLink} 
+        name = {infos.name}
       
         />
 ))}
