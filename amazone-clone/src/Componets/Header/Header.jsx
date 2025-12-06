@@ -4,19 +4,20 @@ import LocationOnIcon from "@mui/icons-material/LocationOn";
 import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LowerHeader from "./LowerHeader";
+import {Link} from "react-router-dom"
 function Header() {
   return (
     <>
       <section className={classes.outerContainer}>
         <div className={classes.innerConatainer}>
           <div className={classes.divOne}>
-            <div className= {classes.linkWrapper}>
-              <a href="">
+            <div className={classes.linkWrapper}>
+              <Link to="/">
                 <img
                   src="https://pngimg.com/uploads/amazon/small/amazon_PNG11.png"
                   alt="amazon logo"
                 />
-              </a>
+              </Link>
             </div>
             <div className={classes.locationContainer}>
               <div className={classes.locationIcon}>
@@ -58,16 +59,18 @@ function Header() {
           </div>
           <div className={classes.divThree}>
             <div className={classes.linkContainer}>
-              <a href="">sign in</a>
-              <a href="">Accounts & Lists</a>
+              <Link to="/auth">sign in</Link>
+              <Link to="/auth">Accounts & Lists</Link>
             </div>
             <div className={classes.linkContainer}>
-              <a href="">returns</a>
-              <a href="">& Orders</a>
+              <Link to="/orders">returns</Link>
+              <Link to="/orders">& Orders</Link>
             </div>
             <div className={`${classes.linkContainer} ${classes.cart}`}>
               <div>
-                <ShoppingCartIcon />
+                <Link to="/cart">
+                  <ShoppingCartIcon />
+                </Link>
               </div>
               <div>
                 <p>0</p>
@@ -76,7 +79,7 @@ function Header() {
           </div>
         </div>
       </section>
-      <LowerHeader/>
+      <LowerHeader />
     </>
   );
 }
