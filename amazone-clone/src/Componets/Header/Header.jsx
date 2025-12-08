@@ -5,7 +5,13 @@ import SearchIcon from "@mui/icons-material/Search";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import LowerHeader from "./LowerHeader";
 import {Link} from "react-router-dom"
+import { useContext } from "react";
+import { DataContext } from "../DataProvider/Dataprovider";
+
+
 function Header() {
+const [state, dispatch] = useContext(DataContext)
+const basketLength = state.basket.length
   return (
     <>
       <section className={classes.outerContainer}>
@@ -73,7 +79,7 @@ function Header() {
                 </Link>
               </div>
               <div>
-                <p>0</p>
+                <p>{basketLength}</p>
               </div>
             </div>
           </div>
