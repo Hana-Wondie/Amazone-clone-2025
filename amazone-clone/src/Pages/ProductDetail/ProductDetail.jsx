@@ -14,7 +14,7 @@ const [product, setProduct] = useState({})
 const [isLoading, setLoading] =  useState(false)
 useEffect(() => {
   setLoading(true)
-axios.get(`${productURL}/${productId}`).then((products) => {
+axios.get(`${productURL}/products/${productId}`).then((products) => {
   setProduct(products.data)
   setLoading(false)
   console.log(product);
@@ -33,11 +33,15 @@ axios.get(`${productURL}/${productId}`).then((products) => {
       ) : (
         <ProductCard
           key={product.id}
-          image={product.images?.[0]}
+          id={product.id}
+          image={product.image}
           title={product.title}
-          rate={product.rating}
-          count={product.stock}
+          description={product.description}
+          rate={product.rating?.rate}
+          count={product.rating?.count}
           price={product.price}
+          flex = {true}
+          renderDescription = {true}
         />
       )}
     </Layout>

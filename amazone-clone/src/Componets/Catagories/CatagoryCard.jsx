@@ -4,7 +4,7 @@ import {Link} from "react-router-dom"
 function CatagoryCard({title, imgLink, name}) {
   return (
     <div className={classes.Catagory}>
-      <Link to={`/categories/${name}`}>
+      <Link to={`/categories/${name.replace(" ", "%20")}`}>
         <span>
           <h2>{title}</h2>
         </span>

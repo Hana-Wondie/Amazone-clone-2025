@@ -15,14 +15,16 @@ function Results() {
   useEffect(() => {
     setLoading(true)
     axios
-      .get(`${productURL}/category/${catagoryName}`)
+      .get(
+        `${productURL}/products/category/${catagoryName.replace(" ", "%20")}`
+      )
       .then((res) => {
-        setResults(res.data.products);
-        setLoading(false)
+        setResults(res.data);
+        setLoading(false);
       })
       .catch((error) => {
         console.log("error", error);
-        setLoading(false)
+        setLoading(false);
       });
   }, [catagoryName]);
 
@@ -40,10 +42,10 @@ function Results() {
               <ProductCard
                 key={results.id}
                 id={results.id}
-                image={results.thumbnail}
+                image={results.image}
                 title={results.title}
-                rate={results.rating}
-                count={results.stock}
+                rate={results.rating.rate}
+                count={results.rating.count}
                 price={results.price}
               />
             ))}

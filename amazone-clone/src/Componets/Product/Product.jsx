@@ -9,15 +9,15 @@ function Product() {
     useEffect(() => {
 setLoading(true)
 axios
-  .get("https://dummyjson.com/products")
+  .get("https://fakestoreapi.com/products")
   .then((res) => {
     console.log(res);
-    setProducts(res.data.products);
-    setLoading(false)
+    setProducts(res.data);
+    setLoading(false);
   })
   .catch((error) => {
     console.log(error);
-    setLoading(false)
+    setLoading(false);
   });
     }, [])
   return (
@@ -30,11 +30,12 @@ axios
             <ProductCard
               key={results.id}
               id={results.id}
-              image={results.thumbnail}
+              image={results.image}
               title={results.title}
-              rate={results.rating}
-              count={results.stock}
+              rate={results.rating.rate}
+              count={results.rating.count}
               price={results.price}
+             
             />
           ))}
         </section>
