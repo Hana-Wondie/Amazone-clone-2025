@@ -42,6 +42,7 @@ axios.get(`${productURL}/products/${productId}`).then((products) => {
           price={product.price}
           flex = {true}
           renderDescription = {true}
+          renderAdd={true}
         />
       )}
     </Layout>

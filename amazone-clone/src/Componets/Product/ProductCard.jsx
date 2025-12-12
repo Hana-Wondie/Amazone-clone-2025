@@ -18,6 +18,7 @@ function ProductCard({
   flex,
   renderDescription,
   description,
+  renderAdd
 }) {
 
 const [state, dispatch] = useContext(DataContext);
@@ -25,7 +26,7 @@ const [state, dispatch] = useContext(DataContext);
 const addToCart = () => {
   dispatch({
     type: Type.ADD_TO_BASKET,
-    items: {
+    item: {
       image,
       title,
       rate,
@@ -49,16 +50,21 @@ const addToCart = () => {
       </Link>
       <div>
         <h3>{title}</h3>
-        {renderDescription && <div style={{width:"490px"}}>{description}</div>}
+        {renderDescription && (
+          <div style={{ width: "490px" }}>{description}</div>
+        )}
         <div className={classes.rating}>
-           <Rating value={rate} precision={0.1} />
+          <Rating value={rate} precision={0.1} />
           <small>{count}</small>
         </div>
         <div>
           <CurrencyFormatter amount={price} />
         </div>
-
-        <button className={classes.button} onClick={addToCart}>add to cart</button>
+        {renderAdd && (
+          <button className={classes.button} onClick={addToCart}>
+            add to cart
+          </button>
+        )}
       </div>
     </div>
   );

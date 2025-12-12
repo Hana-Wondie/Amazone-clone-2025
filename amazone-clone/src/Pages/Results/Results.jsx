@@ -47,6 +47,7 @@ function Results() {
                 rate={results.rating.rate}
                 count={results.rating.count}
                 price={results.price}
+                renderAdd={true}
               />
             ))}
           </div>

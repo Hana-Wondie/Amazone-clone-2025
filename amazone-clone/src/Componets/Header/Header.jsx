@@ -10,10 +10,13 @@ import { DataContext } from "../DataProvider/Dataprovider";
 
 
 function Header() {
-const [state, dispatch] = useContext(DataContext)
-const basketLength = state.basket.length
+const [{basket}, dispatch] = useContext(DataContext)
+const totalItem = basket?.reduce((amount, item) => {
+  return item.amount + amount
+}, 0)
+// const basketLength = basket.length
   return (
-    <>
+    <section className= {classes.fixed}>
       <section className={classes.outerContainer}>
         <div className={classes.innerConatainer}>
           <div className={classes.divOne}>
@@ -79,14 +82,14 @@ const basketLength = state.basket.length
                 </Link>
               </div>
               <div>
-                <p>{basketLength}</p>
+                <p>{totalItem}</p>
               </div>
             </div>
           </div>
         </div>
       </section>
       <LowerHeader />
-    </>
+    </section>
   );
 }
 
