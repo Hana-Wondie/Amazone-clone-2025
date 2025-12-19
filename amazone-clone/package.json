@@ -1,13 +1,13 @@
 {
-  "homepage":"https://Hana-Wondie.github.io/Amazone-clone-2025",
+  "homepage": "https://Hana-Wondie.github.io/Amazone-clone-2025",
   "name": "amazone-clone",
   "private": true,
   "version": "0.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "predeploy":"npm run build",
-    "deploy":"gh-pages -d dist",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
