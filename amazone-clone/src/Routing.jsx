@@ -18,7 +18,6 @@ function Routing() {
           <Route path="/orders" element={<Orders />} />
           <Route path="/categories/:catagoryName" element={<Results />} />
           <Route path="/products/:productId" element={<ProductDetail/>} />
-
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </Router>
