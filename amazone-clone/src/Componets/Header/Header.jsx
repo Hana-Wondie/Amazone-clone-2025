@@ -7,16 +7,17 @@ import LowerHeader from "./LowerHeader";
 import {Link} from "react-router-dom"
 import { useContext } from "react";
 import { DataContext } from "../DataProvider/Dataprovider";
+import  {auth} from "../../Utility/firebase"
 
 
 function Header() {
-const [{basket}, dispatch] = useContext(DataContext)
+const [{user, basket}, dispatch] = useContext(DataContext)
 const totalItem = basket?.reduce((amount, item) => {
   return item.amount + amount
 }, 0)
 // const basketLength = basket.length
   return (
-    <section className= {classes.fixed}>
+    <section className={classes.fixed}>
       <section className={classes.outerContainer}>
         <div className={classes.innerConatainer}>
           <div className={classes.divOne}>
@@ -68,8 +69,21 @@ const totalItem = basket?.reduce((amount, item) => {
           </div>
           <div className={classes.divThree}>
             <div className={classes.linkContainer}>
-              <Link to="/auth">sign in</Link>
-              <Link to="/auth">Accounts & Lists</Link>
+              <Link to={!user && "/auth"}>
+                <div>
+                  {user ? (
+                    <>
+                      <p>Hello {user?.email?.split("@")[0]}</p>
+                      <Link to="/auth" onClick={() =>auth.signOut }>Sign Out</Link>
+                    </>
+                  ) : (
+                    <>
+                      <p>Sign In</p>
+                      <Link to="/auth">Accounts & Lists</Link>
+                    </>
+                  )}
+                </div>
+              </Link>
             </div>
             <div className={classes.linkContainer}>
               <Link to="/orders">returns</Link>
