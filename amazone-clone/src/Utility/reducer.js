@@ -42,6 +42,11 @@ case Type.REMOVE_FROM_BASKET:
       ...state,
       user: action.user
     }
+    case Type.EMPTY_BASKET:
+      return{
+        ...state,
+        basket: []
+      }
   default:
     return state
   }

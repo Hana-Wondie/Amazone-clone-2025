@@ -1,0 +1,19 @@
+.container {
+    background-color: #efeeee;
+    padding: 30px;
+}
+.orderContainer {
+    background-color: white;
+    padding: 20px;
+}
+.orderContainer h2 {
+    border-bottom: 2px solid rgba(255, 166, 0, 0.731);
+    padding: 20px;
+}
+.orderContainer p {
+    padding: 12px;
+}
+.orderContainer img {
+    width: 100px !important;
+    height: auto !important;
+}

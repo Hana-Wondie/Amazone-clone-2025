@@ -1,7 +1,7 @@
 import {auth} from "../../Utility/firebase"
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth" 
 import { ClipLoader } from "react-spinners";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import classes from "../Auth/signup.module.css"
 import { useContext, useState } from "react";
 import {DataContext} from "../../Componets/DataProvider/Dataprovider"
@@ -18,6 +18,7 @@ function Auth() {
 
   const [{user}, dispatch] = useContext(DataContext)
   const navigate = useNavigate()
+  const navStateData =useLocation()
   console.log(user);
 const authHandler = async(e) => {
   e.preventDefault()
@@ -31,7 +32,7 @@ signInWithEmailAndPassword(auth, email, password).then((userinfo) => {
     user:userinfo.user
   })
   setLoading({...loading, signin:false})
-  navigate("/")
+  navigate(navStateData?.state?.redirect || "/")
 }).catch((error) => {
  
   setError(error.message)
@@ -49,7 +50,7 @@ signInWithEmailAndPassword(auth, email, password).then((userinfo) => {
       setLoading({...loading, signup:true})
       console.log(userinfo);
       setLoading({...loading, signup:false})
-      navigate("/")
+       navigate(navStateData?.state?.redirect || "/");
     }).catch((error) => {
       
       setError(error.message)
@@ -69,6 +70,18 @@ signInWithEmailAndPassword(auth, email, password).then((userinfo) => {
       {/* form */}
       <div className={classes.loginContainer}>
         <h1>Sign In</h1>
+        {navStateData.state?.msg && (
+          <small
+            style={{
+              padding: "5px",
+              textAlign: "center",
+              color: "red",
+              fontWeight: "bold",
+            }}
+          >
+            {navStateData.state.msg}
+          </small>
+        )}
         <form action="">
           <div>
             <label htmlFor="email">Email</label>
