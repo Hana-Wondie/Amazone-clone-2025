@@ -2,7 +2,7 @@ import {auth} from "../../Utility/firebase"
 import {signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth" 
 import { ClipLoader } from "react-spinners";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import classes from "../Auth/signup.module.css"
+import classes from "../Auth/Signup.module.css"
 import { useContext, useState } from "react";
 import {DataContext} from "../../Componets/DataProvider/Dataprovider"
 import Type from "../../Utility/action.type"
