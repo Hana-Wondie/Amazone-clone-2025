@@ -1,5 +1,6 @@
 [build]
-  publish = "amazone-clone/dist"
+  base = "amazone-clone"
+  publish = "dist"
   command = "npm run build"
 
 [build.environment]
